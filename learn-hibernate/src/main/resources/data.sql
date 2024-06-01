@@ -1,13 +1,13 @@
-insert into course(id,name,last_Updated_Date, creation_Date) 
-values(101,'Learn Hibernate',current_timestamp(),current_timestamp());
-insert into course(id,name,last_Updated_Date, creation_Date) 
-values(102,'Learn SQL',current_timestamp(),current_timestamp());
-insert into course(id,name,last_Updated_Date, creation_Date) 
-values(103,'Learn JUnit',current_timestamp(),current_timestamp());
-insert into course(id,name,last_Updated_Date, creation_Date) 
-values(104,'Learn Mockto',current_timestamp(),current_timestamp());
-insert into course(id,name,last_Updated_Date, creation_Date) 
-values(105,'Learn Java',current_timestamp(),current_timestamp());
+insert into course(id,name,last_Updated_Date, creation_Date, is_deleted) 
+values(101,'Learn Hibernate',current_timestamp(),current_timestamp(),false);
+insert into course(id,name,last_Updated_Date, creation_Date, is_deleted) 
+values(102,'Learn SQL',current_timestamp(),current_timestamp(),false);
+insert into course(id,name,last_Updated_Date, creation_Date, is_deleted) 
+values(103,'Learn JUnit',current_timestamp(),current_timestamp(),false);
+insert into course(id,name,last_Updated_Date, creation_Date, is_deleted) 
+values(104,'Learn Mockto',current_timestamp(),current_timestamp(),false);
+insert into course(id,name,last_Updated_Date, creation_Date, is_deleted) 
+values(105,'Learn Java',current_timestamp(),current_timestamp(),false);
 
 insert into passport(passport_id,number)
 values(301,'E12345');

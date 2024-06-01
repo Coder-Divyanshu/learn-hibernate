@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 import jakarta.persistence.Cacheable;
 import jakarta.persistence.Entity;
@@ -23,6 +25,8 @@ import jakarta.persistence.OneToMany;
 		@NamedQuery(name="query_alias_find",query="select c from Course c where name like '%me'")
 })
 @Cacheable
+@SQLDelete(sql = "update course set is_deleted=true where id=?")
+@Where(clause = "is_deleted=false")
 public class Course {
 	
 	@Id
@@ -37,6 +41,7 @@ public class Course {
 	private List<Review> reviews = new ArrayList<Review>();
 	@ManyToMany(mappedBy = "courses")
 	private List<Student> students = new ArrayList<>();
+	private boolean isDeleted;
 	
 	public Course() {
 		
