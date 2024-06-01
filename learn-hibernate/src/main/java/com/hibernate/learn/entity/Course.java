@@ -11,6 +11,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.Where;
 
 import jakarta.persistence.Cacheable;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -42,6 +43,8 @@ public class Course {
 	@ManyToMany(mappedBy = "courses")
 	private List<Student> students = new ArrayList<>();
 	private boolean isDeleted;
+	@Embedded
+	private Address address;
 	
 	public Course() {
 		
