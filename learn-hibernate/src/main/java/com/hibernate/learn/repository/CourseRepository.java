@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hibernate.learn.entity.Course;
 import com.hibernate.learn.entity.Review;
+import com.hibernate.learn.entity.ReviewRating;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -73,8 +74,8 @@ public class CourseRepository {
 	public void insertReviewsForCourses() {
 		
 		Course course = findById(104L);
-		Review review1 = new Review("2 star","Not so good");
-		Review review2 = new Review("1 star","Bad");
+		Review review1 = new Review(ReviewRating.TWO,"Not so good");
+		Review review2 = new Review(ReviewRating.ONE,"Bad");
 		
 		review1.setCourse(course);
 		review2.setCourse(course);

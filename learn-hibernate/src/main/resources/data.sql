@@ -24,11 +24,11 @@ insert into student(student_id,name,age,passport_passport_id)
 values(203,'Anuj',50,303);
 
 insert into review(review_id,rating,description,course_id)
-values(401,'5 star','Awesome',101);
+values(401,'FOUR','Awesome',101);
 insert into review(review_id,rating,description,course_id)
-values(402,'4 star','Good',101);
+values(402,'THREE','Good',101);
 insert into review(review_id,rating,description,course_id)
-values(403,'3 star','Average',102);
+values(403,'FIVE','Average',102);
 
 insert into student_course(student_id,course_id)
 values(201,101);
