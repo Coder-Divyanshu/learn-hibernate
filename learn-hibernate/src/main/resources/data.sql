@@ -29,3 +29,12 @@ insert into review(review_id,rating,description,course_id)
 values(402,'4 star','Good',101);
 insert into review(review_id,rating,description,course_id)
 values(403,'3 star','Average',102);
+
+insert into student_course(student_id,course_id)
+values(201,101);
+insert into student_course(student_id,course_id)
+values(201,102);
+insert into student_course(student_id,course_id)
+values(202,103);
+insert into student_course(student_id,course_id)
+values(203,103);

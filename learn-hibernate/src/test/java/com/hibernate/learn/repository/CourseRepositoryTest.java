@@ -2,19 +2,19 @@ package com.hibernate.learn.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-
-import java.util.Arrays;
-import java.util.HashMap;
-
 import org.junit.jupiter.api.Test;
+import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-
 import com.hibernate.learn.entity.Course;
+
+import jakarta.transaction.Transactional;
 
 @SpringBootTest
 public class CourseRepositoryTest {
+	
+	Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private CourseRepository courseRepository;
@@ -23,6 +23,19 @@ public class CourseRepositoryTest {
 	public void test_findByID() {
 		Course course = courseRepository.findById(101L);
 		assertEquals("Learn Hibernate with me", course.getName());
+	}
+	
+	@Test
+	@Transactional
+	public void test_firstLevelCaching() {
+		Course course = courseRepository.findById(101L);
+		logger.info("First Time Fetching Data");
+		
+		Course course1 = courseRepository.findById(101L);
+		logger.info("Second Time Fetching Data");
+		
+		assertEquals("Learn Hibernate", course.getName());
+		assertEquals("Learn Hibernate", course1.getName());
 	}
 	
 	@Test

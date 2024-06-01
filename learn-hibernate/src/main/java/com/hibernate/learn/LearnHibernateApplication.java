@@ -40,11 +40,21 @@ public class LearnHibernateApplication implements CommandLineRunner{
 //		courseRepository.learn_query_find();
 //		courseRepository.named_queries();
 		
-		studentRepository.saveWithPassportNumber();
-		studentRepository.findById(201);
-		
-		studentRepository.findPassportDetailsWithStudentDetails(301);
-		 	
+//		studentRepository.saveWithPassportNumber();
+//		studentRepository.findById(201);
+//		
+//		studentRepository.findPassportDetailsWithStudentDetails(301);
+//		
+//		courseRepository.insertReviewsForCourses();
+//		
+//		courseRepository.retrieveReviewAnsAssociatedCourse();
+//		courseRepository.jpql_query();	
+//		courseRepository.jpql_query1();	
+//		courseRepository.jpql_query2();	
+//		courseRepository.jpql_query4();	
+//		
+//		courseRepository.jpql_query5();	
+		//courseRepository.jpql_query6();	
 	}
 
 }

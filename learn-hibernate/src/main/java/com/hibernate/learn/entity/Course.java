@@ -8,9 +8,11 @@ import java.util.List;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import jakarta.persistence.Cacheable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
@@ -20,6 +22,7 @@ import jakarta.persistence.OneToMany;
 		@NamedQuery(name="query_find_all",query="select c from Course c"),
 		@NamedQuery(name="query_alias_find",query="select c from Course c where name like '%me'")
 })
+@Cacheable
 public class Course {
 	
 	@Id
@@ -32,6 +35,8 @@ public class Course {
 	private LocalDateTime creationDate;
 	@OneToMany(mappedBy = "course")
 	private List<Review> reviews = new ArrayList<Review>();
+	@ManyToMany(mappedBy = "courses")
+	private List<Student> students = new ArrayList<>();
 	
 	public Course() {
 		

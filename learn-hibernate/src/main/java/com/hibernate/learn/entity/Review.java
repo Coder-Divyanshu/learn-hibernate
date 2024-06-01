@@ -19,6 +19,13 @@ public class Review {
 	public Review() {
 		
 	}
+	
+	public Review(String rating, String description) {
+		this.rating = rating;
+		this.description = description;
+	}
+
+
 
 	public int getReview_id() {
 		return review_id;

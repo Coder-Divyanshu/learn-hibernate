@@ -1,9 +1,15 @@
 package com.hibernate.learn.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -14,6 +20,9 @@ public class Student {
 	private int student_id;
 	private String name;
 	private int age;
+	@ManyToMany
+	@JoinTable(name = "Student_Course", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
+	private List<Course> courses = new ArrayList<Course>();
 	
 	@OneToOne(fetch=FetchType.EAGER)
 	private Passport passport;
